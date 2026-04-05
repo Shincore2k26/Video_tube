@@ -1,0 +1,90 @@
+
+/* ===== Ad banner (no extra padding/margins) ===== */
+.ad-banner{ width:100%; }
+.ad-banner a, .ad-banner img{
+  display:block; width:100%; height:auto;
+}
+#adImg {
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* ===== Search Results Iframe ===== */
+#searchResults{
+  display:none; width:100%; height:70vh; border:0;
+}
+
+/* ===== Video grid ===== */
+.video-grid{
+  display:grid; gap:10px; padding:10px; /* reduced padding around videos */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 1024px){
+  .video-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .video-grid{ grid-template-columns: 1fr; }
+}
+
+/* Each video card */
+.video{ display:block; }
+.frame{
+  position:relative; width:100%;
+  aspect-ratio:16/9; /* keeps iframes tight & uniform */
+  background:#000; border-radius:10px; overflow:hidden;
+}
+.frame iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.title{ font-size:14px; margin:6px 2px 2px; }
+.meta{ font-size:12px; color:#666; margin:0 2px 6px; }
+
+/* ===== Custom Video Cards ===== */
+.video-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
+  gap: 15px;
+  margin-bottom: 30px; /* spacing before YouTube section */
+}
+.video-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.video-card:hover {
+  transform: scale(1.03);
+}
+.thumbnail {
+  background: #ccc;
+  height: 225px;
+}
+.video-info {
+  padding: 10px;
+}
+.video-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.video-channel {
+  font-size: 14px;
+  color: #555;
+}
+/* --- YouTube Iframes --- */
+.youtube-videos .video-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 15px;
+}
+.youtube-videos iframe {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+}
+
+
+/* ===== Footer ===== */
+.footer{
+  text-align:center; padding:14px 10px; border-top:1px solid #e8e8e8; background:#fff; color:#555;
+}

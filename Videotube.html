@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VideoTube</title>
+  <meta name="description" content="VideoTube – a YouTube-style demo built with pure HTML, CSS, and JS." />
+  <link rel="stylesheet" href="VCss/style.css" />
+  <link rel="stylesheet" href="VCss/main.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="top-header" role="banner">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="VideoTube Home">VideoTube</a>
+    </div>
+
+    <div class="header-center">
+      <!-- Search: stays on same page -->
+      <form id="ytSearch" class="search-bar" role="search" aria-label="Search YouTube">
+        <input id="q" name="search_query" type="text" placeholder="Search YouTube…" autocomplete="off" required aria-label="Search" />
+        <button type="submit" class="search-btn" aria-label="Search">
+          🔍
+        </button>
+      </form>
+    </div>
+
+    <div class="header-right">
+      <button id="voiceBtn" class="icon-btn" aria-label="Voice search">🎤</button>
+      <button id="createBtn" class="icon-btn" aria-label="Create">➕</button>
+      <button id="bellBtn" class="icon-btn" aria-label="Notifications">🔔</button>
+      <img src="VImage/DefaultImage.jpg" class="profile" alt="Your profile" />
+    </div>
+  </header>
+
+  <!-- SIDEBAR + OVERLAY -->
+  <nav id="sidebar" class="side-menu" aria-label="Main" aria-hidden="true">
+    <button id="closeSidebar" class="close-x" aria-label="Close menu">×</button>
+    <ul>
+      <li><a class="active" href="#"><span>🏠</span> Home</a></li>
+      <li><a href="#"><span>🔥</span> Trending</a></li>
+      <li><a href="#"><span>📺</span> Subscriptions</a></li>
+      <hr />
+      <li><a href="#"><span>📚</span> Library</a></li>
+      <li><a href="#"><span>🕒</span> History</a></li>
+      <li><a href="#"><span>🎞️</span> Your Videos</a></li>
+      <li><a href="#"><span>⏱️</span> Watch Later</a></li>
+      <li><a href="#"><span>👍</span> Liked Videos</a></li>
+      <hr />
+      <li><a href="#"><span>🎵</span> Music</a></li>
+      <li><a href="#"><span>🎮</span> Gaming</a></li>
+      <li><a href="#"><span>📰</span> News</a></li>
+      <li><a href="#"><span>🏀</span> Sports</a></li>
+      <hr />
+      <li><a href="#"><span>⚙️</span> Settings</a></li>
+      <li><a href="#"><span>❓</span> Help</a></li>
+      <li><a href="#"><span>🚪</span> Sign Out</a></li>
+    </ul>
+  </nav>
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- TABS -->
+  <nav class="category-tabs" aria-label="Content categories">
+    <button class="tab active" data-cat="all">All</button>
+    <button class="tab" data-cat="music">Music</button>
+    <button class="tab" data-cat="gaming">Gaming</button>
+    <button class="tab" data-cat="news">News</button>
+    <button class="tab" data-cat="tech">Technology</button>
+    <button class="tab" data-cat="movies">Movies</button>
+    <button class="tab" data-cat="music">Music</button>
+    <button class="tab" data-cat="gaming">Gaming</button>
+    <button class="tab" data-cat="news">News</button>
+    <button class="tab" data-cat="tech">Technology</button>
+    <button class="tab" data-cat="movies">Movies</button>
+    <button class="tab" data-cat="live">Live</button>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main" role="main" aria-live="polite">
+    <!-- Ad banner  -->
+    <section class="ad-banner" aria-label="Advertisement">
+      <a id="adLink" href="#" target="_blank" rel="noopener">
+        <img id="adImg" src="VImage/Advertisement/Advertise.jpg" alt="AAdvertisement">
+      </a>
+    </section>
+
+    <!-- In-page search results -->
+<div class="results-area">
+  <iframe id="ytResults" style="width:100%; height:600px; border:none; display:none;"></iframe>
+</div>
+
+    <!-- Video grid (3 per row desktop, 2 tablet, 1 mobile) -->
+    <section id="videoGrid" class="video-grid" aria-label="Videos">
+      <!-- Example embeds with categories -->
+      <article class="video" data-cat="music">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/Gbi-2SwWs9Q"
+                  title="Music 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">Chill Beats Mix</h3>
+        <p class="meta">LoFi Hub • 1.2M views</p>
+      </article>
+
+      <article class="video" data-cat="gaming">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/Nsp2opucXDY"
+                  title="Gaming 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">Insane Pro Plays</h3>
+        <p class="meta">GameZone • 980K views</p>
+      </article>
+
+      <article class="video" data-cat="news">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/akmKSPV_TKs"
+                  title="News 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">World Headlines</h3>
+        <p class="meta">Daily News • 500K views</p>
+      </article>
+
+      <article class="video" data-cat="tech">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/PvUx3Zjh3zE"
+                  title="Tech 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">AI in 5 Minutes</h3>
+        <p class="meta">TechTalks • 1.1M views</p>
+      </article>
+
+      <article class="video" data-cat="live">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/RGaW82k4dK4"
+                  title="Live 1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">Live Coding Stream</h3>
+        <p class="meta">DevLive • 12K watching</p>
+      </article>
+
+      <article class="video" data-cat="music">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/5WQgLboa_I8"
+                  title="Music 2" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <h3 class="title">Top Pop 2025</h3>
+        <p class="meta">HitPlay • 2.3M views</p>
+      </article>
+    </section>
+         <section class="video-cards">
+    <div class="video-card">
+      <div class="thumbnail"></div>
+      <div class="video-info">
+        <div class="video-title">How to Code in HTML</div>
+        <div class="video-channel">CodeAcademy</div>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumbnail"></div>
+      <div class="video-info">
+        <div class="video-title">Top 10 Gaming Moments</div>
+        <div class="video-channel">GameZone</div>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="thumbnail"></div>
+      <div class="video-info">
+        <div class="video-title">Cooking Pasta Like a Pro</div>
+        <div class="video-channel">ChefMaster</div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    © 2025 VideoTube. All rights reserved.
+  </footer>
+
+  <script src="VJs/vinter.js"></script>
+</body>
+</html>
